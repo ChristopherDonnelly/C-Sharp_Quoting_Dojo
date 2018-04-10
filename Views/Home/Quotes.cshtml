@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "Quotes";
+}
+
+<div class="quotes_layer col-10 m-auto">
+    <h1>Here are some awesome quotes!</h1>
+
+    <div id="quotes" class="col-12">
+
+        @foreach(var item in ViewBag.allQuotes)
+        {
+            <p>"@item["quote"]"</p>
+            <span class="pl-3">- @item["name"]</span>
+            <span>at @item["created_at"].ToString("h:mmtt MMMM d yyyy")</span>
+            <hr>
+        }
+
+    </div>
+</div>

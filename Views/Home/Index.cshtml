@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "QuotingDojo";
+}
+
+<div class="quotes_layer col-10 m-auto">
+    <div class="col-12">
+        <h1>Welcome to @ViewData["Title"]</h1>
+    </div>
+    <form action="/quotes" method="post" class="col-12">
+        <div class="row">
+            <label for="name" class="col-12">Your Name: 
+                <input type="text" name="name" id="name" placeholder="Enter your name" />
+            </label>
+            <label for="quote" class="col-12">Your Quote: 
+                <textarea name="quote" id="quote" cols="65" rows="8" placeholder="Enter your quote" class="align-top"></textarea>
+            </label>
+        </div>
+        <div class="row mt-4">
+            <div class="col-6">
+                <input type="submit" value="Add my quote!">
+            </div>
+            <div class="col-6">
+                <button onclick="location.href='@Url.Action("GetQuotes")';return false;">Skip to quotes!</button>
+            </div>
+            <div class="col-8 mt-4">
+                @if(TempData["errors"]!=null){
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Oh snap!</strong> @TempData["errors"]
+                    </div>
+                }
+            </div>
+        </div>
+    </form>
+</div>
